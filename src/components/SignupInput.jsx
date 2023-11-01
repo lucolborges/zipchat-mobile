@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, View, TextInput } from "react-native";
 
-export function SigonInput({
+export function SignupInput({
   placeholderTextColor,
   onChangeText,
   value,
@@ -21,7 +21,7 @@ export function SigonInput({
         placeholderTextColor={placeholderTextColor}
       />
 
-      <View style={styles.iconContainer}>{icon}</View>
+      <View style={styles.iconContainer}>{icon && icon}</View>
     </View>
   );
 }

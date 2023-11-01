@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import { StatusBar } from "expo-status-bar";
 import { Image, StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import IconChevroBack from "../../assets/icons/IconChevroBack";
-import { SigonInput } from "../components/Sigonnput";
+import { SignupInput } from "../components/SignupInput";
 import { useNavigation } from "@react-navigation/native";
 import IconEyeFill from "../../assets/icons/IconEyeFill";
 import IconEyeSlashFill from "../../assets/icons/IconEyeSlashFill";
 
-export default function SignOn() {
+export default function SignUp() {
   const [showPassword, setShowPassword] = useState(false);
   const [pass, setPass] = useState("");
   const [wrongPass, setWrongPass] = useState(false);
@@ -33,6 +33,8 @@ export default function SignOn() {
 
     if (sigon.password !== pass) {
       setWrongPass(true);
+      setSigon({...sigon, password: ""});
+      setPass("")
       return console.log("error");
     }
 
@@ -68,39 +70,39 @@ export default function SignOn() {
       </View>
 
       <View style={styles.inputSection}>
-        <SigonInput
+        <SignupInput
           placeholder="Nome"
           value={sigon.name}
           onChangeText={(t) => handleInput("name", t)}
         />
 
-        <SigonInput
+        <SignupInput
           placeholder="Usename"I
           value={sigon.username}
           onChangeText={(t) => handleInput("username", t)}
 
         />
 
-        <SigonInput
+        <SignupInput
           placeholder="E-mail"
           value={sigon.email}
 
           onChangeText={(t) => handleInput("email", t)}
         />
 
-        <SigonInput
+        <SignupInput
           showPassword={showPassword}
           icon={handleShowPassword()}
-          placeholder={wrongPass ? "Password" : "Senhas não conferem"}
+          placeholder={wrongPass ? "Senhas não conferem" : "Password"}
           value={pass}
           placeholderTextColor={wrongPass && "red"}
           onChangeText={(t) => setPass(t)}
         />
 
-        <SigonInput
+        <SignupInput
           showPassword={showPassword}
           icon={handleShowPassword()}
-          placeholder={wrongPass ? "Password" : "Senhas não conferem"}
+          placeholder={wrongPass ? "Senhas não conferem" : "Confirme password"}
           value={sigon.password}
           placeholderTextColor={wrongPass && "red"}
           onChangeText={(t) => handleInput("password", t)}
@@ -138,7 +140,7 @@ const styles = StyleSheet.create({
   headerText: {
     color: "white",
     fontSize: 50,
-    fontWeight: "900",
+    fontWeight: "700",
     textShadowColor: 'gray', 
     textShadowOffset: { width:-2, height: 2 }, 
     textShadowRadius: 5, 

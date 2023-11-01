@@ -2,11 +2,11 @@ import React from "react";
 import { StyleSheet, View, TextInput } from "react-native";
 
 export function SigninInput({
-  password,
   onChangeText,
   value,
   placeholder,
   icon,
+  showPassword
 }) {
   return (
     <View style={styles.container}>
@@ -15,7 +15,7 @@ export function SigninInput({
       <TextInput
         style={styles.input}
         required
-        secureTextEntry={password}
+        secureTextEntry={showPassword}
         placeholder={placeholder}
         value={value}
         onChangeText={onChangeText}

@@ -77,7 +77,7 @@ export default function SignIn() {
                 }
                 style={styles.forgotPassword}
               >
-                Esqueceu password?
+                Esqueceu password ?
               </Text>
             </View>
 
@@ -87,11 +87,11 @@ export default function SignIn() {
 
             <View style={styles.textContainer}>
               <Text style={[styles.textContainertext, styles.customText]}>
-                Não tem uma conta?
+                Não tem uma conta ?
               </Text>
               <Text
                 onPress={() =>
-                  navigation.reset({ routes: [{ name: "SignOn" }] })
+                  navigation.reset({ routes: [{ name: "SignUp" }] })
                 }
                 style={styles.textContainertext}
               >

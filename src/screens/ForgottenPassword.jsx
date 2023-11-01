@@ -2,56 +2,34 @@ import React, { useState } from "react";
 import { StatusBar } from "expo-status-bar";
 import { Image, StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import IconChevroBack from "../../assets/icons/IconChevroBack";
-import { SigonInput } from "../components/Sigonnput";
 import { useNavigation } from "@react-navigation/native";
-import IconEyeFill from "../../assets/icons/IconEyeFill";
-import IconEyeSlashFill from "../../assets/icons/IconEyeSlashFill";
+import lock from "../../assets/lock.png";
+import { SignupInput } from "../components/SignupInput";
 
 export default function ForgottenPassword() {
-  const [showPassword, setShowPassword] = useState(false);
-  const [pass, setPass] = useState("");
-  const [wrongPass, setWrongPass] = useState(false);
-  const [sigon, setSigon] = useState({
-    name: "",
-    username: "",
+  const [recoveryPass, setRecoveryPass] = useState({
     email: "",
-    password: "",
+    password: ""
   });
 
   const navigation = useNavigation();
 
   const handleInput = (fieldName, value) => {
-    setSigon({ ...sigon, [fieldName]: value });
+    setRecoveryPass({ ...recoveryPass, [fieldName]: value });
   };
 
-  const doLogon = () => {
-    const signInValues = Object.values(sigon);
+  const doRecoveryPass = () => {
+    const signInValues = Object.values(recoveryPass);
     const emptyField = signInValues.some((value) => value === "");
+
     if (emptyField) {
       return console.log("vazio");
     }
+    console.log(recoveryPass);
 
-    if (sigon.password !== pass) {
-      setWrongPass(true);
-      return console.log("error");
-    }
-
-    setWrongPass(false);
     // PARTE API
 
-    navigation.reset({ routes: [{ name: "Chat" }] });
-  };
-
-  const handleShowPassword = () => {
-    return showPassword ? (
-      <TouchableOpacity onPress={() => setShowPassword(false)}>
-        <IconEyeSlashFill width={26} height={26} style={styles.icon} />
-      </TouchableOpacity>
-    ) : (
-      <TouchableOpacity onPress={() => setShowPassword(true)}>
-        <IconEyeFill width={26} height={26} style={styles.icon} />
-      </TouchableOpacity>
-    );
+    // navigation.reset({ routes: [{ name: "SignIn" }] });
   };
 
   return (
@@ -63,52 +41,35 @@ export default function ForgottenPassword() {
           style={styles.headerIcon}
           onPress={() => navigation.reset({ routes: [{ name: "SignIn" }] })}
         />
-        <Text style={[styles.headerText, styles.text01]}>Crie sua </Text>
-        <Text style={[styles.headerText, styles.text02]}>Conta</Text>
+        <Text style={[styles.headerText, styles.text01]}>Esqueceu sua</Text>
+        <Text style={[styles.headerText, styles.text02]}>Senha</Text>
+      </View>
+
+      <View style={styles.info}>
+        <Image source={lock} style={styles.img} resizeMode="contain" />
+        <Text style={styles.infoText01}>Problema em logar</Text>
+        <Text style={styles.infoText02}>Entre com um e-mail válido</Text>
       </View>
 
       <View style={styles.inputSection}>
-        <SigonInput
-          placeholder="Nome"
-          value={sigon.name}
-          onChangeText={(t) => handleInput("name", t)}
-        />
+        <View style={styles.inputContainer}>
+          <SignupInput
+            placeholder="E-mail"
+            value={recoveryPass.email}
+            onChangeText={(t) => handleInput("email", t)}
+          />
 
-        <SigonInput
-          placeholder="Usename"I
-          value={sigon.username}
-          onChangeText={(t) => handleInput("username", t)}
+          <SignupInput
+            showPassword={true}
+            placeholder="Password"
+            value={recoveryPass.password}
+            onChangeText={(t) => handleInput("password", t)}
+          />
 
-        />
-
-        <SigonInput
-          placeholder="E-mail"
-          value={sigon.email}
-
-          onChangeText={(t) => handleInput("email", t)}
-        />
-
-        <SigonInput
-          showPassword={showPassword}
-          icon={handleShowPassword()}
-          placeholder={wrongPass ? "Password" : "Senhas não conferem"}
-          value={pass}
-          placeholderTextColor={wrongPass && "red"}
-          onChangeText={(t) => setPass(t)}
-        />
-
-        <SigonInput
-          showPassword={showPassword}
-          icon={handleShowPassword()}
-          placeholder={wrongPass ? "Password" : "Senhas não conferem"}
-          value={sigon.password}
-          placeholderTextColor={wrongPass && "red"}
-          onChangeText={(t) => handleInput("password", t)}
-        />
-
-        <TouchableOpacity style={styles.button} onPress={doLogon}>
-          <Text style={styles.buttonText}>Criar conta</Text>
-        </TouchableOpacity>
+          <TouchableOpacity style={styles.button} onPress={doRecoveryPass}>
+            <Text style={styles.buttonText}>Resetar Password</Text>
+          </TouchableOpacity>
+        </View>
       </View>
 
       <StatusBar style="auto" />
@@ -138,10 +99,10 @@ const styles = StyleSheet.create({
   headerText: {
     color: "white",
     fontSize: 50,
-    fontWeight: "900",
-    textShadowColor: 'gray', 
-    textShadowOffset: { width:-2, height: 2 }, 
-    textShadowRadius: 5, 
+    fontWeight: "700",
+    textShadowColor: "gray",
+    textShadowOffset: { width: -2, height: 2 },
+    textShadowRadius: 5,
   },
   text01: {
     marginLeft: -20,
@@ -151,16 +112,44 @@ const styles = StyleSheet.create({
     marginTop: -10,
     fontSize: 60,
   },
+
   inputSection: {
-    marginTop: 30,
     marginHorizontal: 30,
     alignItems: "center",
+    flex: 1,
+
+    // justifyContent: "space-evenly",
+    // height: "60%",
+  },
+
+  inputContainer: {
+    width: "100%",
+    marginTop: 20,
     justifyContent: "space-evenly",
     height: "60%",
   },
-  icon: {
-    color: "gray",
+  info: {
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: 25,
   },
+
+  infoText01: {
+    fontWeight: "800",
+    fontSize: 20,
+    marginTop: 16,
+  },
+
+  infoText02: {
+    fontSize: 17,
+    marginTop: 13,
+  },
+
+  img: {
+    width: 90,
+    height: 90,
+  },
+
   button: {
     backgroundColor: "#00BF63",
     borderRadius: 30,
@@ -175,7 +164,7 @@ const styles = StyleSheet.create({
     color: "white",
     fontSize: 20,
 
-    width: "40%",
+    width: "60%",
     textAlign: "center",
   },
 });
