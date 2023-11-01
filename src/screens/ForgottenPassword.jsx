@@ -7,7 +7,7 @@ import { useNavigation } from "@react-navigation/native";
 import IconEyeFill from "../../assets/icons/IconEyeFill";
 import IconEyeSlashFill from "../../assets/icons/IconEyeSlashFill";
 
-export default function SignOn() {
+export default function ForgottenPassword() {
   const [showPassword, setShowPassword] = useState(false);
   const [pass, setPass] = useState("");
   const [wrongPass, setWrongPass] = useState(false);

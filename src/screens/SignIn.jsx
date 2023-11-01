@@ -73,7 +73,7 @@ export default function SignIn() {
             <View style={styles.forgotPasswordContainer}>
               <Text
                 onPress={() =>
-                  navigation.reset({ routes: [{ name: "ForgottenPassord" }] })
+                  navigation.reset({ routes: [{ name: "ForgottenPassword" }] })
                 }
                 style={styles.forgotPassword}
               >
