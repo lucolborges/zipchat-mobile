@@ -29,7 +29,7 @@ export function SidebarChatButton({ chatItem, active, onClick, onDelete }) {
       <View
         style={[
           styles.container,
-          { backgroundColor: active ? "rgb(3 7 18)" : "transparent" },
+          { backgroundColor: active ? "#00A884" : "transparent" },
         ]}
       >
         <View style={{ marginRight: 12 }}>
@@ -71,11 +71,11 @@ export function SidebarChatButton({ chatItem, active, onClick, onDelete }) {
             ]}
           >
             <TouchableOpacity onPress={handleConfirmButton}>
-              <IconCheck width={16} height={16} style={{ color: "white" }} />
+              <IconCheck width={20} height={20} style={{ color: "white", }} />
             </TouchableOpacity>
 
             <TouchableOpacity onPress={handleCancelButton}>
-              <IconClose width={16} height={16} style={{ color: "white" }} />
+              <IconClose width={20} height={20} style={{ color: "white" }} />
             </TouchableOpacity>
           </View>
         )}
@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
   },
   text: {
-    fontSize: 14,
+    fontSize: 15,
     color: "white",
   },
   deleteIcon: {
@@ -109,5 +109,6 @@ const styles = StyleSheet.create({
     height: 20,
     justifyContent: "center",
     alignItems: "center",
+    
   },
 });

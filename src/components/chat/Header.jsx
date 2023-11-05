@@ -4,9 +4,7 @@ import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
 import IconMenu from "../../../assets/icons/IconMenu";
 import IconAdd from "../../../assets/icons/IconAdd";
 
-
 export function Header({ openSidebarClick, title, newChackClick, modalVisibility }) {
-
   return (
     <View style={[styles.container, {opacity: modalVisibility ? .1 : 1}]}>
       <TouchableOpacity onPress={openSidebarClick}>
@@ -39,11 +37,14 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: "rgb(75 85 99)",
     padding: 12,
+    backgroundColor: '#00A884'
   },
   titleWrapper: {
     marginHorizontal: 8,
   },
   title: {
     color: "white",
+    fontSize: 15,
+    fontWeight: 'bold'
   },
 });

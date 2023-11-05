@@ -17,7 +17,7 @@ export default function Navigation() {
 
   return (
     <NavigationContainer>
-      <Navigator initialRouteName="Chat" screenOptions={screenOptions}>
+      <Navigator initialRouteName="Preload" screenOptions={screenOptions}>
         <Screen name="Preload" component={Preload} />
         <Screen name="SignIn" component={SignIn} />
         <Screen name="SignUp" component={SignUp} />

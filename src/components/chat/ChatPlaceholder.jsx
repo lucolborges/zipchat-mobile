@@ -2,6 +2,7 @@ import React from "react";
 import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
 
 export function ChatPlaceholder() {
+
   return (
     <View style={styles.container}>
       <Text style={styles.Name}>ZIPCHAT</Text>
@@ -19,11 +20,12 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     textAlign: "center",
     marginVertical: 30,
-    color: "white",
+    color: 'black'
   },
   span: {
     color: "white",
     textAlign: "center",
     fontSize: 20,
+    color: 'black'
   },
 });

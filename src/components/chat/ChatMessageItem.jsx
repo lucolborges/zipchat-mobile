@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View, Text, TouchableOpacity, ScrollView } from "react-native";
+import { StyleSheet, View, Text } from "react-native";
 
 import IconUser from "../../../assets/icons/IconUser";
 import IconRobot from "../../../assets/icons/IconRobot";
@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   message: {
-    color: "white",
     maxWidth: "100%",
+    color: "black",
   },
 });

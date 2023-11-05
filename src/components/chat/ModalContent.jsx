@@ -7,6 +7,7 @@ import IconAdd from "../../../assets/icons/IconAdd";
 import IconTrash from '../../../assets/icons/IconTrash'
 
 import { SidebarButton } from "./SidebarButton";
+import { UserArea } from "./UserArea";
 
 export function ModalConten({ onClose, children, onClear, onNewChat }) {
 
@@ -38,6 +39,9 @@ export function ModalConten({ onClose, children, onClear, onNewChat }) {
           </View>
           </TouchableOpacity>
 
+          <View style={styles.userArea}>
+            <UserArea />
+          </View>
 
         </View>
 
@@ -69,7 +73,7 @@ const styles = StyleSheet.create({
   section3: {
     width: 256,
     padding: 12,
-    backgroundColor: "rgb(17, 24, 39)",
+    backgroundColor: "#018266",
     paddingTop: 12,
   },
   newChat: {
@@ -96,4 +100,8 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
   },
+  userArea: {
+    borderTopWidth: 1,
+    borderTopColor: 'rgba(255, 255, 255, 0.4) '
+  }
 });

@@ -129,13 +129,14 @@ export default function Chat() {
     setAILoading(true);
   };
 
+
   return (
     <View style={styles.container}>
       
       <Modal
         animationType="slide"
         visible={modalVisibility}
-        transparent={true}
+        transparent={false}
         onRequestClose={() => setModalVisibility(false)}
       >
         <ModalConten
@@ -182,7 +183,7 @@ export default function Chat() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#343541",
+    backgroundColor: 'white'
   },
   section: {
     flex: 1,

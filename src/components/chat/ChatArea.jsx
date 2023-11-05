@@ -30,8 +30,6 @@ const styles = StyleSheet.create({
     // flexBasis: "auto",
     margin: 3,
     flex: 1,
-  },
-  text: {
-    color: "white",
-  },
+    backgroundColor: 'white'
+  }
 });

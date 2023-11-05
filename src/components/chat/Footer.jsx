@@ -17,8 +17,8 @@ const styles = StyleSheet.create({
   container: {
     maxWidth: "100%",
     borderTopWidth: 1,
-    borderTopColor: " rgb(75 85 99)",
     padding: 8,
+    borderTopColor: "rgba(75, 85, 99, .2)",
   },
   inputArea: {
     maxWidth: "97%",

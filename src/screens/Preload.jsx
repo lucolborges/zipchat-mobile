@@ -18,6 +18,7 @@ export default function Preload() {
         //código que checa e valido o token
         //se já houver um token e for OK, vai para tela do chat
         console.log("FALSE")
+        navigation.reset({ routes: [{ name: "Chat" }] });
       } else {
         setTimeout(() => {
 
